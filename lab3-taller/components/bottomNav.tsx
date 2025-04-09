@@ -5,6 +5,7 @@ import { CommonActions } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Text, BottomNavigation } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import PerfilUsuario from './perfil_usuario';
 
 const Tab = createBottomTabNavigator();
 
@@ -45,11 +46,11 @@ export default function BottomNav() {
           getLabelText={({ route }) => {
             const { options } = descriptors[route.key];
             const label =
-              options.tabBarLabel !== undefined
+              typeof options.tabBarLabel === 'string'
                 ? options.tabBarLabel
-                : options.title !== undefined
+                : typeof options.title === 'string'
                 ? options.title
-                : route.title;
+                : route.name;
 
             return label;
           }}
@@ -81,9 +82,15 @@ export default function BottomNav() {
 }
 
 function HomeScreen() {
+  const userData = {
+    photo: "https://randomuser.me/api/portraits/men/1.jpg",
+    name: 'Daniel Moreno',
+    role: 'Profesor',
+    email: 'dmoreno@utalca.cl'
+  }
   return (
     <View style={styles.container}>
-      <Text variant="headlineMedium">Home!</Text>
+      <PerfilUsuario user={userData} />
     </View>
   );
 }
