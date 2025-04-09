@@ -6,6 +6,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Text, BottomNavigation } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import PerfilUsuario from './perfil_usuario';
+import ListaIncidentes from '@/components/ListaIncidentes';
+import EnviarIncidentes from './EnviarIncidentes';
 
 const Tab = createBottomTabNavigator();
 
@@ -93,6 +95,8 @@ function HomeScreen() {
       <PerfilUsuario user={userData} />
       <Text variant="headlineMedium">Home</Text>
       <Text variant="bodyMedium">Bienvenido a la app de la Universidad de Talca</Text>
+      <EnviarIncidentes></EnviarIncidentes>
+      <Text variant="headlineMedium">Home!</Text>
     </View>
   );
 }
@@ -100,6 +104,7 @@ function HomeScreen() {
 function SettingsScreen() {
   return (
     <View style={styles.container}>
+      <ListaIncidentes></ListaIncidentes>
       <Text variant="headlineMedium">Settings!</Text>
     </View>
   );
