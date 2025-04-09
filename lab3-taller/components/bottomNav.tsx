@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 
 import { CommonActions } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -83,7 +83,7 @@ export default function BottomNav() {
 
 function HomeScreen() {
   const userData = {
-    photo: "https://randomuser.me/api/portraits/men/1.jpg",
+    photo: require('@/assets/images/DanielBlanco.png'), // Cambia esto por la ruta de tu imagen
     name: 'Daniel Moreno',
     role: 'Profesor',
     email: 'dmoreno@utalca.cl'
@@ -91,6 +91,8 @@ function HomeScreen() {
   return (
     <View style={styles.container}>
       <PerfilUsuario user={userData} />
+      <Text variant="headlineMedium">Home</Text>
+      <Text variant="bodyMedium">Bienvenido a la app de la Universidad de Talca</Text>
     </View>
   );
 }
