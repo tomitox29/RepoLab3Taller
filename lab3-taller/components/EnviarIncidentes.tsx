@@ -18,7 +18,7 @@ const EnviarIncidentes = () => {
     setEnviando(true);
     try {
       const data = { titulo, descripcion, urgencia };
-      const response = await axios.post('http://172.16.66.238:8086/setIncidents', data);
+      const response = await axios.post('http://172.16.66.238:8086/addIncidentDBService', data);
       console.log('Incidente enviado:', response.data);
       Alert.alert('¡Enviado!', 'Tu reporte fue creado correctamente.');
       setTitulo('');
