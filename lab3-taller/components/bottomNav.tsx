@@ -19,7 +19,7 @@ export default function BottomNav() {
       }}
       tabBar={({ navigation, state, descriptors, insets }) => (
         <BottomNavigation.Bar
-          navigationState={state}
+         navigationState={state}
          safeAreaInsets={insets}
           onTabPress={({ route, preventDefault }) => {
             const event = navigation.emit({
@@ -75,7 +75,18 @@ export default function BottomNav() {
         options={{
           tabBarLabel: 'Historial',
           tabBarIcon: ({ color, size }) => {
-            return <Icon name="cog" size={size} color={color} />;
+            return <Icon name="file" size={size} color={color} />;
+          },
+        }}
+      />
+
+      <Tab.Screen
+        name="Usuario"
+        component={UsuarioScreen}
+        options={{
+          tabBarLabel: 'Usuario',
+          tabBarIcon: ({ color, size }) => {
+            return <Icon name="account" size={size} color={color} />;
           },
         }}
       />
@@ -84,17 +95,8 @@ export default function BottomNav() {
 }
 
 function HomeScreen() {
-  const userData = {
-    photo: require('@/assets/images/DanielBlanco.png'), // Cambia esto por la ruta de tu imagen
-    name: 'Daniel Moreno',
-    role: 'Profesor',
-    email: 'dmoreno@utalca.cl'
-  }
   return (
     <View style={styles.container}>
-      <PerfilUsuario user={userData} />
-      <Text variant="headlineMedium">Home</Text>
-      <Text variant="bodyMedium">Bienvenido a la app de la Universidad de Talca</Text>
       <EnviarIncidentes></EnviarIncidentes>
       <Text variant="headlineMedium">Home!</Text>
     </View>
@@ -106,6 +108,20 @@ function SettingsScreen() {
     <View style={styles.container}>
       <ListaIncidentes></ListaIncidentes>
       <Text variant="headlineMedium">Settings!</Text>
+    </View>
+  );
+}
+
+function UsuarioScreen() {
+  const userData = {
+    photo: require('@/assets/images/DanielBlanco.png'), // Cambia esto por la ruta de tu imagen
+    name: 'Daniel Moreno',
+    role: 'Profesor',
+    email: 'dmoreno@utalca.cl'
+  }
+  return (
+    <View style={styles.container}>
+      <PerfilUsuario user={userData} />
     </View>
   );
 }

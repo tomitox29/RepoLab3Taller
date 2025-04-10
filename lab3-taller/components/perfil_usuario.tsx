@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         position: 'absolute',
         top: 0,
+        height: '100%',
     },
     profileContainer: {
         width: '100%',
